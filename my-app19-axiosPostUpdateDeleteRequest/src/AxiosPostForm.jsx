@@ -30,6 +30,31 @@ function AxiosPostForm() {
             });
     };
 
+    const handleUpdate = (e) => {
+        e.preventDefault();
+
+        axios
+            .put(
+                "https://jsonplaceholder.typicode.com/users/1",
+                inputData
+            )
+            .then((response) => {
+                console.log(response.data);
+            });
+    };
+
+    const handleDelete = (e) => {
+        e.preventDefault();
+
+        axios
+            .delete(
+                "https://jsonplaceholder.typicode.com/users/1"
+            )
+            .then((response) => {
+                console.log(response.data);
+            });
+    };
+
     return (
         <>
             <label>First Name : </label>
@@ -58,6 +83,14 @@ function AxiosPostForm() {
 
             <button onClick={handleSubmit}>
                 Submit
+            </button>
+
+            <button onClick={handleUpdate}>
+                Update
+            </button>
+
+            <button onClick={handleDelete}>
+                Delete
             </button>
         </>
     );
